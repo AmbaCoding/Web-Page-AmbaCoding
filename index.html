@@ -1,39 +1,3 @@
-<!-- index.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Animated Landing Page</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-
-  <header>
-    <h1>LandingPage</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Ambatukam</a></li>
-        <li><a href="#">About Member</a></li>
-        <li><a href="#">Atmin</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <div class="hero-content">
-      <h2>Welcome to AmbaPage</h2>
-      <p>
-        Ambatukam hadir bukan untuk dimengerti, tapi untuk di rasakan. Website ini penuh kejutan, kegabutan atmin, dan animasi yang tidak terduga
-      </p>
-      <button>Get Started</button>
-    </div>
-  </section>
-
-</body>
-</html>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,14 +7,34 @@
 </head>
 <body>
 
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-logo">AmbaPage</div>
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a href="#home" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item">
+        <a href="#ambatukam" class="nav-link">Ambatukam</a>
+      </li>
+      <li class="nav-item">
+        <a href="#about" class="nav-link">About Member</a>
+      </li>
+      <li class="nav-item">
+        <a href="#atmin" class="nav-link">Atmin</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
 <!-- ===== HERO SECTION ===== -->
 <section class="hero">
   <div class="hero-text">
     <span class="tag">AGENCY</span>
-    <h1>We're Strategic Digital<br>Marketing Agency</h1>
+    <h1>Welcome to AmbaPage<br></h1>
     <p>
-      We help businesses grow through strategic digital
-      solutions and creative marketing.
+      Ambatukam Hadir bukan untuk dimengerti, tapi untuk di rasakan. Website ini penuh kejutan, kegabutan atmin, dan animasi yang tidak terduga
     </p>
 
     <div class="stats">
@@ -67,37 +51,37 @@
     <button>Get Started</button>
   </div>
 
-  <div class="hero-image">
+ <div class="hero-image">
   <img src="assets/ambatunat.png" alt="Hero Image">
 </div>
 </section>
 
 <!-- ===== WORKING PROCESS ===== -->
 <section class="process">
-  <h2>Our Working Process</h2>
+  <h2>Member</h2>
 
   <div class="process-steps">
     <div class="step">
       <div class="icon"></div>
-      <h4>Choose a Service</h4>
+      <h4>Arkan</h4>
       <p>Select the best service for your business</p>
     </div>
 
     <div class="step">
       <div class="icon"></div>
-      <h4>Data Analysis</h4>
+      <h4>Danendra</h4>
       <p>We analyze your business data</p>
     </div>
 
     <div class="step">
       <div class="icon"></div>
-      <h4>Report Analysis</h4>
+      <h4>Dhede</h4>
       <p>Deliver actionable insights</p>
     </div>
 
     <div class="step">
       <div class="icon"></div>
-      <h4>Final Solution</h4>
+      <h4>Ardyansyah</h4>
       <p>Implement optimized solutions</p>
     </div>
   </div>
@@ -123,6 +107,41 @@
   <img src="assets/rusdi.png" alt="Why Choose Us">
 </div>
 </section>
+
+<script>
+  // Navbar animation on click
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      // Remove active class from all links
+      navLinks.forEach(l => l.classList.remove('active'));
+      
+      // Add active class to clicked link
+      this.classList.add('active');
+      
+      // Add animation effect
+      this.style.animation = 'none';
+      setTimeout(() => {
+        this.style.animation = 'linkClick 0.6s ease';
+      }, 10);
+    });
+  });
+
+  // Optional: Remove active class when scrolling past sections
+  window.addEventListener('scroll', () => {
+    navLinks.forEach(link => {
+      const section = document.querySelector(link.getAttribute('href'));
+      if (section) {
+        const rect = section.getBoundingClientRect();
+        if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+        }
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
