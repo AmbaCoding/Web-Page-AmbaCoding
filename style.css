@@ -85,7 +85,10 @@ nav ul li a:active::after {
   max-width: 800px;
   animation: fadeUp 1.2s ease forwards;
 }
-
+.hero img {
+  width: 500px;   
+  height: auto;
+}
 .hero h2 {
   font-size: 3.2rem;
   margin-bottom: 20px;
